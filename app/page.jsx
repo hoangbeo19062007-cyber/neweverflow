@@ -351,11 +351,32 @@ const projectRows = [
 
 function Logo({ footer = false }) {
   return (
-    <img
+    <svg
       className={footer ? "logo logo-footer" : "logo"}
-      src={`${asset}/s600x600/5f714867c025a83c10a07869/elo-20220729080809.png`}
-      alt="Everflow"
-    />
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 280 60"
+      width="280"
+      height="60"
+      fill="none"
+      style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
+    >
+      <defs>
+        <linearGradient id="genetek-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#30c9e8" />
+          <stop offset="100%" stopColor="#008fa7" />
+        </linearGradient>
+      </defs>
+
+      <g transform="translate(10, 8)">
+        <path d="M22 2 L38 11 L38 33 L22 42 L6 33 L6 11 Z" stroke="url(#genetek-grad)" strokeWidth="3" strokeLinejoin="round" />
+        <path d="M14 16 L22 11 L30 16 L30 27 L22 31" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M22 11 L22 25" stroke="url(#genetek-grad)" strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="22" cy="25" r="2.5" fill="#30c9e8" />
+      </g>
+
+      <text x="65" y="32" fontFamily="'Montserrat', 'Roboto', sans-serif" fontSize="22" fontWeight="800" fill="#ffffff" letterSpacing="3.5">GENETEK</text>
+      <text x="66" y="47" fontFamily="'Open Sans', sans-serif" fontSize="9" fontWeight="700" fill="#30c9e8" letterSpacing="4.5">TECHNOLOGY</text>
+    </svg>
   );
 }
 
@@ -415,7 +436,7 @@ export default function Home() {
         <div className="cloud cloud-b" />
         <div className="cloud cloud-c" />
         <div className="hero-copy">
-          <h1>Everflow là một công ty công nghệ</h1>
+          <h1>Genetek là một công ty công nghệ</h1>
           <p>
             Chúng tôi tập trung vào các dịch vụ chuyển đổi số cho doanh nghiệp; cung cấp các giải pháp phần mềm trong
             marketing và chăm sóc khách hàng giúp cho các Doanh nghiệp tối ưu hiệu quả trong kinh doanh.
@@ -442,10 +463,10 @@ export default function Home() {
         <div className="container about-grid">
           <div className="about-copy">
             <p className="eyebrow">Về chúng tôi</p>
-            <h2>Công ty cổ phần Everflow</h2>
-            <p>Everflow là một công ty công nghệ, chuyên cung cấp các dịch vụ phần mềm cho Doanh nghiệp</p>
+            <h2>Công ty cổ phần Genetek</h2>
+            <p>Genetek là một công ty công nghệ, chuyên cung cấp các dịch vụ phần mềm cho Doanh nghiệp</p>
             <p>
-              Everflow chúng tôi tập trung vào các dịch vụ chuyển đổi số cho doanh nghiệp; cung cấp các giải pháp phần
+              Genetek chúng tôi tập trung vào các dịch vụ chuyển đổi số cho doanh nghiệp; cung cấp các giải pháp phần
               mềm trong marketing và chăm sóc khách hàng giúp cho các Doanh nghiệp tối ưu hiệu quả trong kinh doanh.
             </p>
             <a className="btn btn-filled" href="#services">
@@ -491,9 +512,9 @@ export default function Home() {
       <section id="services" className="services section-pad">
         <div className="container">
           <div className="section-heading centered">
-            <h2>Everflow cung cấp dịch vụ</h2>
+            <h2>Genetek cung cấp dịch vụ</h2>
             <p>
-              Với hơn 9 năm hoạt động trong lĩnh vực Công Nghệ Thông Tin, Everflow đã và đang cung cấp các giải pháp
+              Với hơn 9 năm hoạt động trong lĩnh vực Công Nghệ Thông Tin, Genetek đã và đang cung cấp các giải pháp
               phần mềm & tư vấn, triển khai chuyển đổi số cho hàng loạt doanh nghiệp trong và ngoài nước. Với các dịch
               vụ tiêu biểu như:
             </p>
@@ -545,7 +566,7 @@ export default function Home() {
         <div className="container">
           <div className="automation-intro">
             <p>
-              Đội ngũ của Everflow sau 3 năm nghiên cứu phát triển đã sáng tạo ra một nền tảng tự động hóa trong
+              Đội ngũ của Genetek sau 3 năm nghiên cứu phát triển đã sáng tạo ra một nền tảng tự động hóa trong
               Marketing và chăm sóc khách hàng có tên là Oneclicktosell.com - hướng đến những nhà bán hàng online, các
               doanh nghiệp SMEs và các doanh nghiệp lớn, nền tảng này giúp họ xây dựng hệ thống kinh doanh online hiệu
               quả, tối ưu chi phí Marketing và Chăm sóc khách hàng qua đó gia doanh thu, lợi nhuận và làm dầy tệp khách
@@ -591,11 +612,11 @@ export default function Home() {
             <h2>Xây dựng hệ thống kinh doanh online tự động</h2>
             <p>
               Với kinh nghiệm phát triển hệ thống nền tảng tự động hóa Mareketing và chăm sóc khách hàng, đội ngũ của
-              Everflow nắm vững các quy trình setup hệ thống kinh doanh online, các chiến dịch, kịch bản để thu hút
+              Genetek nắm vững các quy trình setup hệ thống kinh doanh online, các chiến dịch, kịch bản để thu hút
               khách hàng tiềm năng và chăm sóc tốt tệp khách hàng trung thành.
             </p>
             <p>
-              Từ đó Everflow cung cấp tới các doanh nghiệp đang chuyển đổi mô hình từ kinh doanh truyền thống lên kinh
+              Từ đó Genetek cung cấp tới các doanh nghiệp đang chuyển đổi mô hình từ kinh doanh truyền thống lên kinh
               doanh online dịch vụ setup hệ thống kinh doanh tự động hóa.
             </p>
           </div>
@@ -607,7 +628,7 @@ export default function Home() {
           <div className="section-heading centered">
             <h2>Các dịch vụ giá trị gia tăng khác</h2>
             <p>
-              Everflow hiện là đối tác chiến lược của tập đoàn viễn thông quân đội Viettel, chúng tôi đang khai thác
+              Genetek hiện là đối tác chiến lược của tập đoàn viễn thông quân đội Viettel, chúng tôi đang khai thác
               các dịch vụ giá trị gia tăng của Viettel cung cấp cho các Doanh nghiệp như:
             </p>
           </div>
@@ -753,7 +774,7 @@ export default function Home() {
         <div className="container">
           <h2>Khách hàng - Đối tác</h2>
           <p>
-            EVERFLOW là đối tác chiến lược của 10 trong số top 100 doanh nghiệp Viễn thông lớn nhất toàn cầu: Viettel,
+            GENETEK là đối tác chiến lược của 10 trong số top 100 doanh nghiệp Viễn thông lớn nhất toàn cầu: Viettel,
             Halotel, Unitel, Metfone, Natcom. Bitel, Telemor, Mytel, Nexttel, Lumitel.
           </p>
           <p>Ngoài ra chúng tôi cũng là đối tác của các tập đoàn lớn: Range Rover Viet Nam, Vin group, lazada..</p>
@@ -771,13 +792,13 @@ export default function Home() {
             <Logo footer />
             <ul className="contact-list">
               <li>Điện thoại: (+84) 969.595. 475</li>
-              <li>Email: info@everflow.vn</li>
+              <li>Email: info@genetek.vn</li>
               <li>Địa chỉ: Số 3 Thọ Tháp, Cầu Giấy, Hà Nội</li>
-              <li>Website: everflow.vn</li>
+              <li>Website: genetek.vn</li>
             </ul>
           </div>
           <div className="footer-title">
-            <h2>CÔNG TY CỔ PHẦN EVERFLOW</h2>
+            <h2>CÔNG TY CỔ PHẦN GENETEK</h2>
             <p>LIÊN HỆ VỚI CHÚNG TÔI</p>
             <div className="footer-socials">
               <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -800,17 +821,22 @@ export default function Home() {
           <div className="facebook-widget">
             <div className="facebook-header">
               <div className="fb-cover-banner">
-                <div className="fb-banner-logo">EVERFLOW</div>
+                <div className="fb-banner-logo">GENETEK</div>
                 <div className="fb-banner-subtitle">Tự động hóa bán hàng & chăm sóc khách hàng</div>
               </div>
               <div className="fb-overlay" />
               <div className="fb-profile-row">
                 <div className="fb-avatar">
-                  <img src="https://w.ladicdn.com/s600x600/5f714867c025a83c10a07869/elo-20220729080809.png" alt="Everflow Avatar" />
+                  <svg viewBox="0 0 44 44" className="fb-avatar-svg" style={{ width: '100%', height: '100%', display: 'block', borderRadius: '50%', background: '#111827', padding: '6px' }}>
+                    <path d="M22 2 L38 11 L38 33 L22 42 L6 33 L6 11 Z" stroke="#30c9e8" strokeWidth="3" strokeLinejoin="round" fill="none" />
+                    <path d="M14 16 L22 11 L30 16 L30 27 L22 31" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <path d="M22 11 L22 25" stroke="#30c9e8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+                    <circle cx="22" cy="25" r="2.5" fill="#30c9e8" />
+                  </svg>
                 </div>
                 <div className="fb-page-info">
                   <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-page-name">
-                    everflow
+                    genetek.vn
                   </a>
                   <div className="fb-followers">77 người theo dõi</div>
                 </div>
@@ -832,7 +858,7 @@ export default function Home() {
             </div>
             <div className="facebook-body">
               <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-post-banner">
-                <div className="fb-post-text">EVERFLOW LÀ GÌ ?</div>
+                <div className="fb-post-text">GENETEK LÀ GÌ ?</div>
                 <div className="fb-post-subtext">Giải pháp kiến tạo hệ thống kinh doanh online đột phá</div>
               </a>
             </div>
