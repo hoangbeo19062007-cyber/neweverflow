@@ -351,32 +351,18 @@ const projectRows = [
 
 function Logo({ footer = false }) {
   return (
-    <svg
+    <img
       className={footer ? "logo logo-footer" : "logo"}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 280 60"
-      width="280"
-      height="60"
-      fill="none"
-      style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
-    >
-      <defs>
-        <linearGradient id="genetek-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#30c9e8" />
-          <stop offset="100%" stopColor="#008fa7" />
-        </linearGradient>
-      </defs>
-
-      <g transform="translate(10, 8)">
-        <path d="M22 2 L38 11 L38 33 L22 42 L6 33 L6 11 Z" stroke="url(#genetek-grad)" strokeWidth="3" strokeLinejoin="round" />
-        <path d="M14 16 L22 11 L30 16 L30 27 L22 31" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M22 11 L22 25" stroke="url(#genetek-grad)" strokeWidth="2.5" strokeLinecap="round" />
-        <circle cx="22" cy="25" r="2.5" fill="#30c9e8" />
-      </g>
-
-      <text x="65" y="32" fontFamily="'Montserrat', 'Roboto', sans-serif" fontSize="22" fontWeight="800" fill="#ffffff" letterSpacing="3.5">GENETEK</text>
-      <text x="66" y="47" fontFamily="'Open Sans', sans-serif" fontSize="9" fontWeight="700" fill="#30c9e8" letterSpacing="4.5">TECHNOLOGY</text>
-    </svg>
+      src="/logos/genetek.png"
+      alt="Genetek"
+      style={{
+        display: 'block',
+        maxWidth: '100%',
+        height: 'auto',
+        maxHeight: footer ? '64px' : '52px',
+        objectFit: 'contain'
+      }}
+    />
   );
 }
 
@@ -826,13 +812,8 @@ export default function Home() {
               </div>
               <div className="fb-overlay" />
               <div className="fb-profile-row">
-                <div className="fb-avatar">
-                  <svg viewBox="0 0 44 44" className="fb-avatar-svg" style={{ width: '100%', height: '100%', display: 'block', borderRadius: '50%', background: '#111827', padding: '6px' }}>
-                    <path d="M22 2 L38 11 L38 33 L22 42 L6 33 L6 11 Z" stroke="#30c9e8" strokeWidth="3" strokeLinejoin="round" fill="none" />
-                    <path d="M14 16 L22 11 L30 16 L30 27 L22 31" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                    <path d="M22 11 L22 25" stroke="#30c9e8" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                    <circle cx="22" cy="25" r="2.5" fill="#30c9e8" />
-                  </svg>
+                <div className="fb-avatar" style={{ background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', borderRadius: '50%', overflow: 'hidden' }}>
+                  <img src="/logos/genetek.png" alt="Genetek Avatar" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div className="fb-page-info">
                   <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-page-name">
