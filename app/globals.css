@@ -68,6 +68,10 @@ button {
   background: transparent;
 }
 
+.header-container {
+  display: none;
+}
+
 .nav-shell {
   width: min(1100px, calc(100% - 42px));
   height: 78px;
@@ -1579,22 +1583,173 @@ th:first-child {
 
 @media (max-width: 960px) {
   .site-header {
-    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(12, 14, 28, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .site-header.menu-open {
+    background: #0c0e1c;
+    border-bottom-color: transparent;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    height: 100%;
+  }
+
+  .header-container .logo {
+    display: block !important;
+    height: 52px !important;
+    width: auto !important;
+    max-height: 52px !important;
+    object-fit: contain;
   }
 
   .nav-shell {
-    grid-template-columns: repeat(3, 1fr);
-    height: auto;
-    padding: 12px 0;
-    gap: 10px;
-    font-size: 13px;
+    display: none !important;
   }
 
-  .logo {
+  /* Hamburger Menu Button */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 0px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, 0px);
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #0c0e1c;
+    z-index: 998;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+    overflow-y: auto;
+  }
+
+  .mobile-drawer.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .mobile-nav a {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+    text-align: left;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a:active {
+    color: #00bcd4;
+    padding-left: 8px;
+    border-bottom-color: rgba(0, 188, 212, 0.3);
+  }
+
+  .mobile-nav .mobile-call-btn {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00abc1, #00ccd4);
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 171, 193, 0.4);
+    text-align: center;
+  }
+
+  .mobile-nav .mobile-call-btn:hover {
+    background: linear-gradient(135deg, #00cbd4, #00abc1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 171, 193, 0.5);
+    color: #ffffff;
+  }
+
+  .service-illustration {
     grid-column: 1 / -1;
-    grid-row: 1;
-    width: 190px;
-    height: 40px;
+    grid-row: auto;
+    justify-self: center;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .impact-image {
+    width: 100%;
+    max-width: 680px;
+    margin-left: 0;
+    justify-self: center;
+  }
+
+  .online-grid img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
   }
 
   .hero {
@@ -1680,19 +1835,11 @@ th:first-child {
 
 @media (max-width: 640px) {
   .container {
-    width: min(340px, calc(100% - 80px));
+    width: min(540px, calc(100% - 40px));
   }
 
   .section-pad {
     padding: 58px 0;
-  }
-
-  .nav-shell {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .nav-shell a {
-    font-size: 12px;
   }
 
   .hero {

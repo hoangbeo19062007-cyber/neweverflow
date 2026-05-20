@@ -369,6 +369,7 @@ function Logo({ footer = false }) {
 
 export default function Home() {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   function handlePrevProject() {
     setActiveProjectIndex((prev) => (prev === 0 ? projectsData.length - 1 : prev - 1));
@@ -402,7 +403,20 @@ export default function Home() {
 
   return (
     <main>
-      <header className="site-header">
+      <header className={`site-header ${isMobileMenuOpen ? 'menu-open' : ''}`}>
+        <div className="header-container">
+          <Logo />
+          <button 
+            className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
         <nav className="nav-shell" aria-label="Chính">
           {navLinks.slice(0, 3).map(([label, href]) => (
             <a key={label} href={href}>
@@ -416,6 +430,24 @@ export default function Home() {
             </a>
           ))}
         </nav>
+
+        {/* Mobile Navigation Drawer */}
+        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
+          <nav className="mobile-nav">
+            {navLinks.map(([label, href]) => (
+              <a 
+                key={label} 
+                href={href} 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+            <a href="tel:0969595475" className="mobile-call-btn" onClick={() => setIsMobileMenuOpen(false)}>
+              LIÊN HỆ: 0969.595.475
+            </a>
+          </nav>
+        </div>
       </header>
 
       <section id="home" className="hero">
