@@ -2635,43 +2635,26 @@ th:first-child {
 }
 
 .mobile-layout-root .facebook-widget {
-  display: none;
+  width: 100%;
+  max-width: 100%;
+  align-self: stretch;
 }
 
-/* --- Mobile: Quick Contact Bar --- */
-.mobile-layout-root .quick-contact {
-  position: fixed;
-  z-index: 20;
-  left: 50%;
-  bottom: 12px;
-  display: flex;
-  gap: 20px;
-  transform: translateX(-50%);
-  background: rgba(12, 14, 28, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 10px 24px;
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.mobile-layout-root .facebook-header {
+  height: 110px;
 }
 
-.mobile-layout-root .quick-contact a {
-  display: grid;
+.mobile-layout-root .fb-page-name {
+  font-size: 16px;
+}
+
+.mobile-layout-root .fb-avatar {
   width: 42px;
   height: 42px;
-  place-items: center;
-  border-radius: 50%;
-  transition: transform 0.2s ease;
 }
 
-.mobile-layout-root .quick-contact a:active {
-  transform: scale(0.92);
-}
-
-.mobile-layout-root .quick-contact img {
-  width: 36px;
-  height: 36px;
+.mobile-layout-root .facebook-body {
+  height: 130px;
 }
 
 /* --- Mobile: Scroll margin for fixed header --- */
@@ -2687,5 +2670,3 @@ th:first-child {
 .mobile-layout-root .mobile-drawer.open ~ * {
   pointer-events: none;
 }
-
-

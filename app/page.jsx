@@ -1181,23 +1181,48 @@ function MobileLayout({
               </a>
             </div>
           </div>
+          <div className="facebook-widget">
+            <div className="facebook-header">
+              <div className="fb-cover-banner">
+                <div className="fb-banner-logo">GENETEK</div>
+                <div className="fb-banner-subtitle">Tự động hóa bán hàng &amp; chăm sóc khách hàng</div>
+              </div>
+              <div className="fb-overlay" />
+              <div className="fb-profile-row">
+                <div className="fb-avatar" style={{ background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', borderRadius: '50%', overflow: 'hidden' }}>
+                  <img src="/logos/genetek.png" alt="Genetek Avatar" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+                <div className="fb-page-info">
+                  <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-page-name">
+                    genetek.vn
+                  </a>
+                  <div className="fb-followers">77 người theo dõi</div>
+                </div>
+              </div>
+              <div className="fb-actions">
+                <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-btn">
+                  <svg viewBox="0 0 24 24" className="fb-btn-icon">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                  </svg>
+                  Theo dõi Trang
+                </a>
+                <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-btn">
+                  <svg viewBox="0 0 24 24" className="fb-btn-icon">
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.8 2.04.8 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.8l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                  </svg>
+                  Chia sẻ
+                </a>
+              </div>
+            </div>
+            <div className="facebook-body">
+              <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" className="fb-post-banner">
+                <div className="fb-post-text">GENETEK LÀ GÌ ?</div>
+                <div className="fb-post-subtext">Giải pháp kiến tạo hệ thống kinh doanh online đột phá</div>
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
-
-      <div className="quick-contact" aria-label="Liên hệ nhanh">
-        <a href="https://zalo.me/0969595475" aria-label="Zalo">
-          <img src={`${asset}/ladiui/icons/social/zalo.svg`} alt="" />
-        </a>
-        <a href="tel:0969595475" aria-label="Gọi điện">
-          <img src={`${asset}/ladiui/icons/social/phone-call.svg`} alt="" />
-        </a>
-        <a href="https://www.facebook.com/everflow.vn" aria-label="Messenger">
-          <img src={`${asset}/ladiui/icons/social/messenger.svg`} alt="" />
-        </a>
-        <a href="https://www.facebook.com/everflow.vn" aria-label="Facebook">
-          <img src={`${asset}/ladiui/icons/social/facebook.svg`} alt="" />
-        </a>
-      </div>
     </div>
   );
 }
