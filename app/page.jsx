@@ -358,8 +358,9 @@ function Logo({ footer = false }) {
       style={{
         display: 'block',
         maxWidth: '100%',
-        height: 'auto',
-        maxHeight: footer ? '64px' : '52px',
+        width: 'auto',
+        height: footer ? '76px' : '70px',
+        maxHeight: footer ? '76px' : '70px',
         objectFit: 'contain'
       }}
     />
