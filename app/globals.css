@@ -2214,7 +2214,7 @@ th:first-child {
 
 .mobile-layout-root .hero-copy {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   width: calc(100% - 40px);
   margin: 0 auto;
   color: #ffffff;
@@ -2263,11 +2263,12 @@ th:first-child {
 
 .mobile-layout-root .hero-art {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   width: 96%;
   max-width: 460px;
   height: auto;
   margin: 20px auto 0;
+  pointer-events: none;
 }
 
 .mobile-layout-root .hero-art img {
