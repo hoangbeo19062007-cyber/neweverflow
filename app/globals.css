@@ -1997,3 +1997,695 @@ th:first-child {
   }
 }
 
+/* ==========================================================================
+   DESKTOP LAYOUT ROOT — Isolation layer
+   The desktop layout uses the existing base styles above as-is.
+   We only hide mobile-only elements that shouldn't exist on desktop.
+   ========================================================================== */
+.desktop-layout-root .header-container {
+  display: none;
+}
+
+.desktop-layout-root .mobile-drawer {
+  display: none;
+}
+
+.desktop-layout-root .hamburger {
+  display: none;
+}
+
+.desktop-layout-root .quick-contact {
+  display: none;
+}
+
+/* ==========================================================================
+   MOBILE LAYOUT ROOT — Fully scoped mobile styles
+   These styles are ONLY applied when .mobile-layout-root is rendered.
+   ========================================================================== */
+
+/* --- Mobile: Header & Navigation --- */
+.mobile-layout-root .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(12, 14, 28, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-layout-root .site-header.menu-open {
+  background: #0c0e1c;
+  border-bottom-color: transparent;
+}
+
+.mobile-layout-root .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.mobile-layout-root .header-container .logo {
+  display: block !important;
+  height: 48px !important;
+  width: auto !important;
+  max-height: 48px !important;
+  object-fit: contain;
+}
+
+.mobile-layout-root .nav-shell {
+  display: none !important;
+}
+
+/* --- Mobile: Hamburger Button --- */
+.mobile-layout-root .hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.mobile-layout-root .hamburger span {
+  width: 100%;
+  height: 2.5px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left center;
+}
+
+.mobile-layout-root .hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(2px, -1px);
+}
+
+.mobile-layout-root .hamburger.active span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.mobile-layout-root .hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(2px, 1px);
+}
+
+/* --- Mobile: Navigation Drawer --- */
+.mobile-layout-root .mobile-drawer {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  height: calc(100dvh - 70px);
+  background: linear-gradient(180deg, #0c0e1c 0%, #111428 100%);
+  z-index: 998;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 28px;
+  overflow-y: auto;
+}
+
+.mobile-layout-root .mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-layout-root .mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.mobile-layout-root .mobile-nav a {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border-bottom: none;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  text-align: left;
+  background: transparent;
+}
+
+.mobile-layout-root .mobile-nav a:hover,
+.mobile-layout-root .mobile-nav a:active {
+  color: #ffffff;
+  background: rgba(0, 188, 212, 0.12);
+  padding-left: 20px;
+}
+
+.mobile-layout-root .mobile-nav .mobile-call-btn {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00abc1, #00ccd4);
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 171, 193, 0.35);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.mobile-layout-root .mobile-nav .mobile-call-btn:hover {
+  background: linear-gradient(135deg, #00cbd4, #00abc1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 171, 193, 0.5);
+  color: #ffffff;
+}
+
+/* --- Mobile: General Layout --- */
+.mobile-layout-root .container {
+  width: min(580px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.mobile-layout-root .section-pad {
+  padding: 52px 0;
+}
+
+.mobile-layout-root .section-pad.compact {
+  padding: 42px 0;
+}
+
+/* --- Mobile: Hero Section --- */
+.mobile-layout-root .hero {
+  position: relative;
+  min-height: auto;
+  padding-top: 110px;
+  padding-bottom: 40px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.mobile-layout-root .hero::before {
+  position: absolute;
+  inset: 0 -7% auto;
+  height: 480px;
+  content: "";
+  background: var(--cyan);
+  border-bottom-right-radius: 50% 10%;
+  border-bottom-left-radius: 50% 10%;
+  box-shadow: 0 10px 0 rgba(48, 201, 232, 0.18), 0 22px 0 rgba(48, 201, 232, 0.08);
+}
+
+.mobile-layout-root .hero-copy {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: center;
+}
+
+.mobile-layout-root .hero-copy h1 {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile-layout-root .hero-copy p {
+  margin: 18px auto 0;
+  max-width: 340px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mobile-layout-root .hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.mobile-layout-root .btn {
+  display: inline-flex;
+  min-width: 180px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.mobile-layout-root .hero-art {
+  position: relative;
+  z-index: 3;
+  width: 96%;
+  max-width: 460px;
+  height: auto;
+  margin: 20px auto 0;
+}
+
+.mobile-layout-root .hero-art img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  transform: none;
+}
+
+.mobile-layout-root .cloud,
+.mobile-layout-root .tech-icon {
+  display: none;
+}
+
+/* --- Mobile: About Section --- */
+.mobile-layout-root .about {
+  padding-top: 40px;
+}
+
+.mobile-layout-root .about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mobile-layout-root .blob-left {
+  display: none;
+}
+
+.mobile-layout-root .about-copy h2 {
+  font-size: 26px;
+}
+
+.mobile-layout-root .about-copy p {
+  font-size: 15px;
+}
+
+.mobile-layout-root .about-copy .btn {
+  margin-top: 24px;
+}
+
+.mobile-layout-root .eyebrow {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.mobile-layout-root .intro-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.mobile-layout-root .intro-card {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  min-height: 200px;
+  padding: 24px 20px;
+  overflow: hidden;
+}
+
+.mobile-layout-root .intro-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.mobile-layout-root .intro-card p {
+  font-size: 14px;
+  max-width: 60%;
+}
+
+.mobile-layout-root .intro-card img {
+  position: absolute;
+  right: -40px;
+  bottom: -20px;
+  width: 180px;
+  max-width: none;
+}
+
+/* --- Mobile: Impact Section --- */
+.mobile-layout-root .impact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mobile-layout-root .impact-image {
+  width: 100%;
+  margin-left: 0;
+  border-radius: 12px;
+}
+
+.mobile-layout-root .impact-copy h2 {
+  font-size: 26px;
+}
+
+.mobile-layout-root .impact-copy p {
+  font-size: 15px;
+}
+
+/* --- Mobile: Headings General --- */
+.mobile-layout-root .about-copy h2,
+.mobile-layout-root .impact-copy h2,
+.mobile-layout-root .section-heading h2,
+.mobile-layout-root .automation h2,
+.mobile-layout-root .customers h2,
+.mobile-layout-root .online h2,
+.mobile-layout-root .all-projects h2,
+.mobile-layout-root .latest h2,
+.mobile-layout-root .partners h2 {
+  font-size: 26px;
+  line-height: 1.25;
+}
+
+.mobile-layout-root .about-copy p,
+.mobile-layout-root .impact-copy p,
+.mobile-layout-root .section-heading p,
+.mobile-layout-root .automation p,
+.mobile-layout-root .online p,
+.mobile-layout-root .partners p {
+  font-size: 15px;
+}
+
+/* --- Mobile: Services Section --- */
+.mobile-layout-root .service-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mobile-layout-root .service-block {
+  min-height: auto;
+  padding: 8px 0 0 60px;
+}
+
+.mobile-layout-root .service-block span {
+  font-size: 48px;
+}
+
+.mobile-layout-root .service-block h3 {
+  font-size: 18px;
+}
+
+.mobile-layout-root .service-illustration {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  grid-column: auto;
+  grid-row: auto;
+  align-self: center;
+}
+
+.mobile-layout-root .section-heading {
+  max-width: 100%;
+}
+
+.mobile-layout-root .section-heading.centered {
+  margin-bottom: 32px;
+}
+
+/* --- Mobile: Featured Carousel --- */
+.mobile-layout-root .carousel-container {
+  padding: 12px;
+}
+
+.mobile-layout-root .carousel-track article {
+  flex: 0 0 240px;
+}
+
+.mobile-layout-root .carousel-track .title-card {
+  flex: 0 0 240px;
+  min-height: 180px;
+}
+
+.mobile-layout-root .carousel-prev {
+  left: -16px;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+}
+
+.mobile-layout-root .carousel-next {
+  right: -16px;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+}
+
+/* --- Mobile: Automation Section --- */
+.mobile-layout-root .automation-intro {
+  max-width: 100%;
+}
+
+.mobile-layout-root .automation-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-layout-root .automation-grid article {
+  min-height: auto;
+  padding: 24px 18px;
+}
+
+/* --- Mobile: Customers Section --- */
+.mobile-layout-root .logo-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.mobile-layout-root .logo-grid img {
+  height: 48px;
+}
+
+/* --- Mobile: Online Section --- */
+.mobile-layout-root .online-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-layout-root .online-grid img {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.mobile-layout-root .online h2 {
+  font-size: 24px;
+}
+
+/* --- Mobile: Value Services --- */
+.mobile-layout-root .value-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-layout-root .value-grid article {
+  border-radius: 12px;
+}
+
+.mobile-layout-root .value-grid img {
+  height: 180px;
+}
+
+.mobile-layout-root .value-grid h3 {
+  min-height: auto;
+  margin-bottom: 12px;
+}
+
+/* --- Mobile: Project Pills Carousel --- */
+.mobile-layout-root .project-carousel-wrapper {
+  padding: 0 40px;
+  margin-top: 28px;
+}
+
+.mobile-layout-root .project-pills a {
+  flex: 0 0 100%;
+  min-width: auto;
+  min-height: 90px;
+  font-size: 16px;
+  padding: 18px 20px;
+  border-radius: 14px;
+}
+
+.mobile-layout-root .carousel-arrow {
+  width: 36px;
+  height: 36px;
+}
+
+.mobile-layout-root .carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Mobile: Project Detail --- */
+.mobile-layout-root .project-detail {
+  padding: 42px 0;
+}
+
+.mobile-layout-root .project-detail::before {
+  display: none;
+}
+
+.mobile-layout-root .detail-deco-left,
+.mobile-layout-root .detail-deco-right {
+  display: none;
+}
+
+.mobile-layout-root .detail-card {
+  grid-template-columns: 1fr;
+  border-radius: 14px;
+}
+
+.mobile-layout-root .detail-image {
+  min-height: 200px;
+}
+
+.mobile-layout-root .detail-content {
+  padding: 28px 20px;
+}
+
+.mobile-layout-root .detail-content h2 {
+  font-size: 24px;
+}
+
+.mobile-layout-root .detail-content p {
+  font-size: 14px;
+}
+
+.mobile-layout-root .detail-content dl {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* --- Mobile: Latest Projects Table --- */
+.mobile-layout-root .table-wrap {
+  max-width: 100%;
+}
+
+.mobile-layout-root table {
+  font-size: 12px;
+  min-width: 640px;
+}
+
+.mobile-layout-root th,
+.mobile-layout-root td {
+  padding: 8px 6px;
+}
+
+/* --- Mobile: Partners --- */
+.mobile-layout-root .partner-grid {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 100%;
+}
+
+.mobile-layout-root .partners p {
+  max-width: 100%;
+  font-size: 14px;
+}
+
+/* --- Mobile: Footer --- */
+.mobile-layout-root .footer {
+  border-top-left-radius: 80px 60px;
+  padding: 50px 0 32px;
+}
+
+.mobile-layout-root .footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.mobile-layout-root .footer-title h2 {
+  font-size: 22px;
+}
+
+.mobile-layout-root .contact-list li {
+  font-size: 14px;
+}
+
+.mobile-layout-root .facebook-widget {
+  display: none;
+}
+
+/* --- Mobile: Quick Contact Bar --- */
+.mobile-layout-root .quick-contact {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: 12px;
+  display: flex;
+  gap: 20px;
+  transform: translateX(-50%);
+  background: rgba(12, 14, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 24px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-layout-root .quick-contact a {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.mobile-layout-root .quick-contact a:active {
+  transform: scale(0.92);
+}
+
+.mobile-layout-root .quick-contact img {
+  width: 36px;
+  height: 36px;
+}
+
+/* --- Mobile: Scroll margin for fixed header --- */
+.mobile-layout-root section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* --- Mobile: Body scroll lock when menu is open --- */
+.mobile-layout-root .site-header.menu-open ~ * {
+  pointer-events: none;
+}
+
+.mobile-layout-root .mobile-drawer.open ~ * {
+  pointer-events: none;
+}
+
+

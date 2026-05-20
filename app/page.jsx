@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const asset = "https://w.ladicdn.com";
 const store = `${asset}/5f714867c025a83c10a07869`;
@@ -46,7 +46,7 @@ const serviceGroups = [
     number: "2",
     title: "Sản phẩm ứng dụng di động",
     items: [
-      "Thiết kế Mobile App trên Android/ ISO",
+      "Thiết kế Mobile App trên Android/ IOS",
       "Thiết kế hệ thống webapp",
       "Phát triển phần mềm quản lý trên App mobile",
       "Game"
@@ -117,8 +117,7 @@ const projectsData = [
     bg: "#e30613",
     logo: "/logos/project-viettel-global.png",
     partner: "Viettel",
-    technology: "PHP, Laravel, Redis, VueJS",
-    isViettel: false
+    technology: "PHP, Laravel, Redis, VueJS"
   },
   {
     title: "API Camid",
@@ -126,8 +125,7 @@ const projectsData = [
     bg: "#0c8da6",
     logo: "/logos/project-myunitel.png",
     partner: "Metfone",
-    technology: "Java, Framework Spring",
-    isViettel: false
+    technology: "Java, Framework Spring"
   },
   {
     title: "Tracking",
@@ -135,8 +133,7 @@ const projectsData = [
     bg: "#28a745",
     logo: "/logos/project-oneclicktogo.png",
     partner: "Eposi",
-    technology: "React Native",
-    isViettel: false
+    technology: "React Native"
   },
   {
     title: "mDealer",
@@ -144,8 +141,7 @@ const projectsData = [
     bg: "#fd7e14",
     logo: "/logos/project-mbccs.png",
     partner: "Metfone",
-    technology: "Android, Swift",
-    isViettel: false
+    technology: "Android, Swift"
   },
   {
     title: "My Unitel",
@@ -153,8 +149,7 @@ const projectsData = [
     bg: "#f16122",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 19.13.42.png",
     partner: "Unitel Laos",
-    technology: "Native Mobile, Microservices",
-    isViettel: false
+    technology: "Native Mobile, Microservices"
   },
   {
     title: "Báo điện tử VOV",
@@ -162,8 +157,7 @@ const projectsData = [
     bg: "#004098",
     logo: "/logos/project-muabanxe.png",
     partner: "Đài tiếng nói Việt Nam (VOV)",
-    technology: "PHP, Drupal, Postgres, Elasticsearch, Openshift",
-    isViettel: false
+    technology: "PHP, Drupal, Postgres, Elasticsearch, Openshift"
   },
   {
     title: "Ứng dụng đọc báo VOV",
@@ -171,8 +165,7 @@ const projectsData = [
     bg: "#0b5edd",
     logo: "/logos/project-businesswisser.png",
     partner: "Đài tiếng nói Việt Nam (VOV)",
-    technology: "Kotlin, Swift, Firebase API",
-    isViettel: false
+    technology: "Kotlin, Swift, Firebase API"
   },
   {
     title: "Dự án GBOC",
@@ -180,8 +173,7 @@ const projectsData = [
     bg: "#6f42c1",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 20.38.03.png",
     partner: "Viettel Global",
-    technology: "PHP, Laravel, AngularJs, Java, Oracle, Big Data",
-    isViettel: false
+    technology: "PHP, Laravel, AngularJs, Java, Oracle, Big Data"
   },
   {
     title: "Dự án Viettel Global Portal",
@@ -189,8 +181,7 @@ const projectsData = [
     bg: "#e30613",
     logo: "/logos/project-mgland.png",
     partner: "Viettel Global",
-    technology: "PHP, Laravel, Oracle",
-    isViettel: false
+    technology: "PHP, Laravel, Oracle"
   },
   {
     title: "Mua bán xe",
@@ -198,8 +189,7 @@ const projectsData = [
     bg: "#1e40af",
     logo: "/logos/project-bellcare.png",
     partner: "OtoViet",
-    technology: "React, Node.js, PostgreSQL",
-    isViettel: false
+    technology: "React, Node.js, PostgreSQL"
   },
   {
     title: "Business Wisser",
@@ -207,8 +197,7 @@ const projectsData = [
     bg: "#1e3a5f",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 19.14.42.png",
     partner: "Wisser Group",
-    technology: "Java, Spring Boot, Angular",
-    isViettel: false
+    technology: "Java, Spring Boot, Angular"
   },
   {
     title: "Oneclicktogo website",
@@ -216,8 +205,7 @@ const projectsData = [
     bg: "#065f46",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 19.15.03.png",
     partner: "Oneclicktogo",
-    technology: "Next.js, Tailwind CSS",
-    isViettel: false
+    technology: "Next.js, Tailwind CSS"
   },
   {
     title: "Dự án mBCCS",
@@ -225,8 +213,7 @@ const projectsData = [
     bg: "#0e7490",
     logo: "/logos/project-thpt.png",
     partner: "Viettel Telecom",
-    technology: "Java, Oracle, Redis",
-    isViettel: false
+    technology: "Java, Oracle, Redis"
   },
   {
     title: "Project MG Land",
@@ -234,8 +221,7 @@ const projectsData = [
     bg: "#854d0e",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 19.14.27.png",
     partner: "MG Land Group",
-    technology: "PHP, Laravel, AngularJs, Swift, React Native",
-    isViettel: false
+    technology: "PHP, Laravel, AngularJs, Swift, React Native"
   },
   {
     title: "Ứng dụng BellCare",
@@ -243,8 +229,7 @@ const projectsData = [
     bg: "#15803d",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 19.14.58.png",
     partner: "BellCare Việt Nam",
-    technology: "Flutter, Firebase",
-    isViettel: false
+    technology: "Flutter, Firebase"
   },
   {
     title: "Hệ thống luyện thi THPT",
@@ -252,16 +237,14 @@ const projectsData = [
     bg: "#1e3a8a",
     logo: "/logos/Ảnh màn hình 2026-04-21 lúc 19.15.41.png",
     partner: "Đối tác giáo dục",
-    technology: "Java, React, MySQL",
-    isViettel: false
+    technology: "Java, React, MySQL"
   }
 ];
-
 
 const automationFeatures = [
   {
     title: "Tương tác",
-    text: "Gia tăng khác hàng mới và thu hút sự quan tâm của khách hàng bằng những thông điệp phù hợp được cá nhân hóa dành riêng cho họ.",
+    text: "Gia tăng khách hàng mới và thu hút sự quan tâm của khách hàng bằng những thông điệp phù hợp được cá nhân hóa dành riêng cho họ.",
     items: [
       "Quảng cáo tìm khách hàng mới",
       "Quảng cáo nhắm mục tiêu",
@@ -271,7 +254,7 @@ const automationFeatures = [
     icon: (
       <svg viewBox="0 0 100 100" className="automation-icon">
         <path d="M51.1,30.446c3.5,0,6.4-2.9,6.4-6.4s-2.9-6.4-6.4-6.4s-6.4,2.9-6.4,6.4C44.7,27.646,47.6,30.446,51.1,30.446 z M51.1,20.046c2.2,0,4,1.8,4,4s-1.8,4-4,4s-4-1.8-4-4S48.9,20.046,51.1,20.046z M19.5,91.646l15.3-5.4v-14.8c0,0-14.8,4.2-15.3,4.2 V91.646z M30.4,78.846c0.5-0.1,0.7,0.4,0.7,1c0,0.5-0.3,1.1-0.7,1.2c-0.4,0.1-0.8-0.3-0.8-0.9S30,78.946,30.4,78.846z M29.3,83.146 c0.5-0.1,0.7,0.4,0.7,1c0,0.5-0.3,1.1-0.7,1.2c-0.4,0.1-0.8-0.3-0.8-0.9S28.9,83.246,29.3,83.146z M27.8,76.346 c0.5-0.1,0.7,0.4,0.7,1c0,0.5-0.3,1.1-0.7,1.2c-0.4,0.1-0.8-0.3-0.8-0.9S27.4,76.446,27.8,76.346z M27.7,79.546 c0.8-0.2,1.2,0.6,1.2,1.6c0,0.9-0.5,1.9-1.2,2.1s-1.3-0.5-1.3-1.5S27,79.746,27.7,79.546z M26.2,84.246c0.5-0.1,0.7,0.4,0.7,1 c0,0.5-0.3,1.1-0.7,1.2c-0.4,0.1-0.8-0.3-0.8-0.9C25.4,84.946,25.8,84.446,26.2,84.246z M24.8,80.646c0.5-0.1,0.7,0.4,0.7,1 c0,0.5-0.3,1.1-0.7,1.2c-0.4,0.2-0.8-0.2-0.8-0.9S24.4,80.846,24.8,80.646z M61.7,43.346v18.4h-3.6v24.8H52v-24.8h-1.7v24.8h-6.1 v-24.8h-3.6v-18.4c0-5.9,4.8-10.6,10.6-10.6C57,32.746,61.7,37.446,61.7,43.346z M64.9,81.546l13.7,3v-15.3l-13.7-2.2V81.546z M72.7,78.646l1,0.2v2.5l-1-0.3V78.646z M71.1,70.246c0.5,0,0.8,0.5,0.8,1.2c0,0.6-0.4,1.2-0.8,1.2c-0.5,0-0.8-0.5-0.8-1.2 C70.3,70.846,70.7,70.246,71.1,70.246z M69.7,75.146L69.7,75.146c0-1.7,0.7-2.2,1.4-2.1c1.2,0.2,1.4,1.3,1.4,2.4v2.6l-0.5-0.1v3.9 l-0.8-0.2v-3.9l-0.2-0.1v3.9l-0.8-0.2v-3.9l-0.5-0.1V75.146z M33.1,14.046l-9.8-5.6v12.3l9.8,2.7V14.046z M27.4,20.046l-1.6-3.1 l0.5-0.3l1.1,2.2l2.4-4.3l0.5,0.3L27.4,20.046z M83.8,49.046l-5.5,0.3c-0.1,0-0.1,0.1-0.1,0.1v11.6c0,0.1,0.1,0.1,0.1,0.1l0,0 l5.4,0.6c0.1,0,0.1-0.1,0.1-0.1v-12.5C83.9,49.146,83.9,49.046,83.8,49.046z M81,60.746c-0.2,0-0.3-0.2-0.3-0.4s0.1-0.3,0.3-0.3 c0.2,0,0.3,0.2,0.3,0.4C81.3,60.646,81.2,60.746,81,60.746z M83.4,59.346c0,0.2-0.1,0.3-0.3,0.3l-4-0.3c-0.2,0-0.3-0.1-0.3-0.3v-8.8 c0-0.2,0.1-0.3,0.3-0.3l4-0.2c0.2,0,0.3,0.1,0.3,0.3V59.346z M69.3,45.446v18.8l25.7,3.8v-24.3L69.3,45.446z M84.5,61.646 c0,0.4-0.3,0.7-0.7,0.7l0,0l-5.5-0.6c-0.4,0-0.7-0.3-0.7-0.7v-11.6c0-0.4,0.3-0.7,0.7-0.7l5.5-0.3c0.4,0,0.7,0.3,0.7,0.7V61.646z M30.6,50.646l4.1-0.4v-9.6l-7.2-0.5v10.7c0,1.4,0.7,2.6,1.5,2.6h0.3c0.7-0.2,1.3-1.3,1.3-2.6L30.6,50.646L30.6,50.646z M33.8,47.646l-5.6,0.3v-0.6l5.6-0.3V47.646z M33.8,46.146l-5.6,0.2v-0.6l5.6-0.2V46.146z M28.2,41.146l5.6,0.2v0.6l-5.6-0.3 L28.2,41.146L28.2,41.146z M28.2,42.646l5.6,0.1v0.6l-5.6-0.1L28.2,42.646z M33.8,44.246v0.6l-5.6,0.1v-0.6L33.8,44.246z M28.2,49.646v-0.6l3.6-0.4v0.6L28.2,49.646z M31.2,51.146l6.4-0.6c-0.1,1.2-0.6,2-1.4,2.1l-5.7,0.7 C30.8,52.846,31.1,52.046,31.2,51.146z M21.1,32.546v28.7l18.8-3.5v-14.4c0-3.1,1.2-5.9,3.3-7.9L21.1,32.546z M38.1,50.246 c0,1.6-0.8,2.8-1.9,3l-6.8,0.8c-0.1,0-0.2,0-0.4,0c-1.2,0-2.1-1.4-2.1-3.2v-11.3l8.4,0.5v10.1l2.9-0.3v0.4H38.1z M69.5,27.946 l1.3-0.4v1.8l-1.3,0.3V27.946z M72.7,27.046l1.4-0.3v5.5l-1.4,0.3V27.046z M68.2,26.446v7l3.9-0.8v-6l2.6-0.6v6.1l1-0.2v-7.5 l1.1-0.3l-4.8-3.6l-4.8,6.1L68.2,26.446z M68.9,27.546l2.5-0.7v3.1l-2.5,0.5V27.546z M87.6,8.446l-30.8,11.5 c0.8,1.2,1.3,2.6,1.3,4.1c0,2.9-1.8,5.4-4.4,6.5v1.9c4.4,1.1,7.8,4.8,8.4,9.3l25.5-2.7V8.446z M76.3,24.946v7.5l-8.7,1.7v-7 l-1.8,0.4l6.2-7.8l6.2,4.7L76.3,24.946z M5,52.646l10-1v-10.6l-10-0.7V52.646z M8.1,44.246l0.4-0.4l1.7,2l1.6-2l0.5,0.4l-1.6,2 l1.8,2l-0.4,0.4l-1.7-2l-1.9,2.4l-0.5-0.4l1.8-2.3L8.1,44.246z" />
-      </svg>
+    </svg>
     )
   },
   {
@@ -367,56 +350,19 @@ function Logo({ footer = false }) {
   );
 }
 
-export default function Home() {
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  function handlePrevProject() {
-    setActiveProjectIndex((prev) => (prev === 0 ? projectsData.length - 1 : prev - 1));
-  }
-
-  function handleNextProject() {
-    setActiveProjectIndex((prev) => (prev === projectsData.length - 1 ? 0 : prev + 1));
-  }
-
-  function slideLeft() {
-    const container = document.querySelector('.project-pills-container');
-    if (container) {
-      container.scrollBy({ left: -300, behavior: 'smooth' });
-    }
-  }
-
-  function slideRight() {
-    const container = document.querySelector('.project-pills-container');
-    if (container) {
-      container.scrollBy({ left: 300, behavior: 'smooth' });
-    }
-  }
-
-  function scrollCarousel(direction) {
-    const track = document.querySelector('.carousel-track');
-    if (track) {
-      const scrollAmount = 320;
-      track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-    }
-  }
-
+/* ==========================================================================
+   DESKTOP LAYOUT COMPONENT (Renders exclusively for Desktop / SSR)
+   ========================================================================== */
+function DesktopLayout({
+  activeProjectIndex,
+  setActiveProjectIndex,
+  slideLeft,
+  slideRight,
+  scrollCarousel
+}) {
   return (
-    <main>
-      <header className={`site-header ${isMobileMenuOpen ? 'menu-open' : ''}`}>
-        <div className="header-container">
-          <Logo />
-          <button 
-            className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+    <div className="desktop-layout-root">
+      <header className="site-header">
         <nav className="nav-shell" aria-label="Chính">
           {navLinks.slice(0, 3).map(([label, href]) => (
             <a key={label} href={href}>
@@ -430,24 +376,6 @@ export default function Home() {
             </a>
           ))}
         </nav>
-
-        {/* Mobile Navigation Drawer */}
-        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
-          <nav className="mobile-nav">
-            {navLinks.map(([label, href]) => (
-              <a 
-                key={label} 
-                href={href} 
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {label}
-              </a>
-            ))}
-            <a href="tel:0969595475" className="mobile-call-btn" onClick={() => setIsMobileMenuOpen(false)}>
-              LIÊN HỆ: 0969.595.475
-            </a>
-          </nav>
-        </div>
       </header>
 
       <section id="home" className="hero">
@@ -694,7 +622,6 @@ export default function Home() {
       </section>
 
       <section id="project-detail" className="project-detail">
-        {/* Background SVGs for Image 2 design style */}
         <svg className="detail-deco-left" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <pattern id="dot-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -753,7 +680,7 @@ export default function Home() {
                 <dd>{projectsData[activeProjectIndex].partner}</dd>
               </div>
               <div>
-                <dt>Technolotgy</dt>
+                <dt>Technology</dt>
                 <dd>{projectsData[activeProjectIndex].technology}</dd>
               </div>
             </dl>
@@ -879,6 +806,383 @@ export default function Home() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+/* ==========================================================================
+   MOBILE LAYOUT COMPONENT (Renders exclusively for Mobile Phones)
+   ========================================================================== */
+function MobileLayout({
+  activeProjectIndex,
+  setActiveProjectIndex,
+  slideLeft,
+  slideRight,
+  scrollCarousel
+}) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  return (
+    <div className="mobile-layout-root">
+      <header className={`site-header ${isMobileMenuOpen ? 'menu-open' : ''}`}>
+        <div className="header-container">
+          <Logo />
+          <button 
+            className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
+          <nav className="mobile-nav">
+            {navLinks.map(([label, href]) => (
+              <a 
+                key={label} 
+                href={href} 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+            <a href="tel:0969595475" className="mobile-call-btn" onClick={() => setIsMobileMenuOpen(false)}>
+              LIÊN HỆ: 0969.595.475
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <section id="home" className="hero">
+        <div className="hero-copy">
+          <h1>Genetek là một công ty công nghệ</h1>
+          <p>
+            Chúng tôi tập trung vào các dịch vụ chuyển đổi số cho doanh nghiệp; cung cấp các giải pháp phần mềm trong
+            marketing và chăm sóc khách hàng giúp cho các Doanh nghiệp tối ưu hiệu quả trong kinh doanh.
+          </p>
+          <div className="hero-actions">
+            <a className="btn btn-filled" href="tel:0969595475">
+              LIÊN HỆ NGAY
+            </a>
+            <a className="btn btn-outline" href="#about">
+              TÌM HIỂU THÊM
+            </a>
+          </div>
+        </div>
+        <div className="hero-art" aria-hidden="true">
+          <img src="/hero-home-illustration.png" alt="" />
+        </div>
+      </section>
+
+      <section id="about" className="about section-pad">
+        <div className="container about-grid">
+          <div className="about-copy">
+            <p className="eyebrow">Về chúng tôi</p>
+            <h2>Công ty cổ phần Genetek</h2>
+            <p>Genetek là một công ty công nghệ, chuyên cung cấp các dịch vụ phần mềm cho Doanh nghiệp</p>
+            <p>
+              Genetek chúng tôi tập trung vào các dịch vụ chuyển đổi số cho doanh nghiệp; cung cấp các giải pháp phần
+              mềm trong marketing và chăm sóc khách hàng giúp cho các Doanh nghiệp tối ưu hiệu quả trong kinh doanh.
+            </p>
+            <a className="btn btn-filled" href="#services">
+              TÌM HIỂU THÊM
+            </a>
+          </div>
+          <div className="intro-cards">
+            {introCards.map((card, index) => (
+              <article className={`intro-card intro-${index}`} key={card.title}>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+                <img src={card.image} alt="" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="impact section-pad">
+        <div className="container impact-grid">
+          <img
+            className="impact-image"
+            src={`${asset}/s1100x750/5f714867c025a83c10a07869/giu16231210003871-20220726043415.jpg`}
+            alt=""
+          />
+          <div className="impact-copy">
+            <h2>Hiệu quả mang lại</h2>
+            <p>
+              Chúng tôi tin tưởng rằng, nếu đưa công nghệ vào việc Marketing và chăm sóc khách hàng thì hiệu quả kinh
+              doanh sẽ tăng lên gấp nhiều lần.
+            </p>
+            <p>
+              Chúng tôi cam kết về tính hiệu quả của các sản phẩm và dịch vụ mà mình khi cung cấp sẽ giúp cho khách
+              hàng gia tăng giá trị và thành công hơn khi hợp tác với chúng tôi.
+            </p>
+            <a className="btn btn-filled" href="#contact">
+              LIÊN HỆ NGAY
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="services section-pad">
+        <div className="container">
+          <div className="section-heading centered">
+            <h2>Genetek cung cấp dịch vụ</h2>
+            <p>
+              Với hơn 9 năm hoạt động trong lĩnh vực Công Nghệ Thông Tin, Genetek đã và đang cung cấp các giải pháp
+              phần mềm & tư vấn, triển khai chuyển đổi số cho hàng loạt doanh nghiệp trong và ngoài nước.
+            </p>
+          </div>
+          <div className="service-grid">
+            {serviceGroups.map((group) => (
+              <article className="service-block" key={group.number}>
+                <span>{group.number}</span>
+                <h3>{group.title}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+            <img
+              className="service-illustration"
+              src={`${asset}/s950x650/5f714867c025a83c10a07869/rbg/trai-nghiem-khach-hang-20220726043054.png`}
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="project-strip">
+        <div className="container">
+          <div className="featured-carousel">
+            <div className="carousel-container">
+              <div className="carousel-track">
+                <article className="title-card">
+                  <h3>Các dự án tiêu biểu</h3>
+                </article>
+                {featuredProjects.map((project) => (
+                  <article key={project.title}>
+                    <img src={project.image} alt="" />
+                    <h3>{project.title}</h3>
+                  </article>
+                ))}
+              </div>
+              <button className="carousel-prev" onClick={() => scrollCarousel(-1)}>‹</button>
+              <button className="carousel-next" onClick={() => scrollCarousel(1)}>›</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="automation section-pad">
+        <div className="container">
+          <div className="automation-intro">
+            <p>
+              Đội ngũ của Genetek sau 3 năm nghiên cứu phát triển đã sáng tạo ra một nền tảng tự động hóa trong
+              Marketing và chăm sóc khách hàng có tên là Oneclicktosell.com.
+            </p>
+          </div>
+          <h2>Dịch vụ chăm sóc khách hàng</h2>
+          <div className="automation-grid">
+            {automationFeatures.map((feature) => (
+              <article key={feature.title}>
+                {feature.icon && <div className="automation-icon-wrapper">{feature.icon}</div>}
+                <h3>{feature.title}</h3>
+                <p>{feature.text}</p>
+                <ul>
+                  {feature.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="customers" className="customers section-pad compact">
+        <div className="container">
+          <h2>Khách hàng tiêu biểu</h2>
+          <div className="logo-grid">
+            {clientLogos.map((logo, index) => (
+              <img src={logo} alt="" key={`${logo}-${index}`} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="online section-pad">
+        <div className="container online-grid">
+          <img
+            src={`${asset}/s750x700/5f714867c025a83c10a07869/fb-ads-1-20220724124136.png`}
+            alt=""
+          />
+          <div>
+            <h2>Xây dựng hệ thống kinh doanh online tự động</h2>
+            <p>
+              Với kinh nghiệm phát triển hệ thống nền tảng tự động hóa Mareketing và chăm sóc khách hàng, đội ngũ của
+              Genetek nắm vững các quy trình setup hệ thống kinh doanh online tự động hóa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="value-services section-pad">
+        <div className="container">
+          <div className="section-heading centered">
+            <h2>Các dịch vụ giá trị gia tăng khác</h2>
+            <p>
+              Genetek hiện là đối tác chiến lược của tập đoàn viễn thông quân đội Viettel...
+            </p>
+          </div>
+          <div className="value-grid">
+            {valueServices.map((service) => (
+              <article key={service.title}>
+                <img src={service.image} alt="" />
+                <h3>{service.title}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" className="all-projects section-pad compact">
+        <div className="container">
+          <h2>Một số dự án tiêu biểu</h2>
+          <div className="project-carousel-wrapper">
+            <button className="carousel-arrow prev" onClick={slideLeft} aria-label="Slide left">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/></svg>
+            </button>
+            
+            <div className="project-pills-container">
+              <div className="project-pills">
+                {projectsData.map((project, index) => (
+                  <a 
+                    href="#project-detail" 
+                    key={project.title}
+                    className={activeProjectIndex === index ? "active" : ""}
+                    onClick={() => setActiveProjectIndex(index)}
+                  >
+                    {project.title}
+                    <span className="sub-detail">Xem chi tiết</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <button className="carousel-arrow next" onClick={slideRight} aria-label="Slide right">
+              <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" fill="currentColor"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-detail" className="project-detail">
+        <div className="container detail-card">
+          <div className="detail-image full-image-mode">
+            <img src={projectsData[activeProjectIndex].logo} alt={projectsData[activeProjectIndex].title} />
+          </div>
+          <div className="detail-content">
+            <h2>{projectsData[activeProjectIndex].title}</h2>
+            <p>{projectsData[activeProjectIndex].description}</p>
+            <dl>
+              <div>
+                <dt>Partner</dt>
+                <dd>{projectsData[activeProjectIndex].partner}</dd>
+              </div>
+              <div>
+                <dt>Technology</dt>
+                <dd>{projectsData[activeProjectIndex].technology}</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section className="latest section-pad compact">
+        <div className="container">
+          <h2>Dự án mới nhất</h2>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>DỰ ÁN</th>
+                  <th>KHÁCH HÀNG</th>
+                  <th>MÔ TẢ</th>
+                  <th>CÔNG NGHỆ</th>
+                </tr>
+              </thead>
+              <tbody>
+                {projectRows.map((row, rowIndex) => (
+                  <tr key={row.join("-")}>
+                    {row.map((cell, cellIndex) => (
+                      <td key={`${rowIndex}-${cellIndex}`}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="partners section-pad compact">
+        <div className="container">
+          <h2>Khách hàng - Đối tác</h2>
+          <p>
+            GENETEK là đối tác chiến lược của 10 trong số top 100 doanh nghiệp Viễn thông lớn nhất toàn cầu: Viettel,
+            Halotel, Unitel, Metfone, Natcom. Bitel, Telemor, Mytel, Nexttel, Lumitel.
+          </p>
+          <div className="logo-grid partner-grid">
+            {clientLogos.slice(0, 5).map((logo, index) => (
+              <img src={logo} alt="" key={`${logo}-partner-${index}`} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer id="contact" className="footer">
+        <div className="container footer-grid">
+          <div>
+            <Logo footer />
+            <ul className="contact-list">
+              <li>Điện thoại: (+84) 969.595. 475</li>
+              <li>Email: info@genetek.vn</li>
+              <li>Địa chỉ: Số 3 Thọ Tháp, Cầu Giấy, Hà Nội</li>
+              <li>Website: genetek.vn</li>
+            </ul>
+          </div>
+          <div className="footer-title">
+            <h2>CÔNG TY CỔ PHẦN GENETEK</h2>
+            <p>LIÊN HỆ VỚI CHÚNG TÔI</p>
+            <div className="footer-socials">
+              <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" className="social-icon">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
+                </svg>
+              </a>
+              <a href="https://zalo.me/0969595475" target="_blank" rel="noopener noreferrer" aria-label="Zalo">
+                <svg viewBox="0 0 24 24" className="social-icon">
+                  <path d="M12 2C6.48 2 2 5.58 2 10c0 1.93.83 3.68 2.22 5.03L3.18 19.5c-.15.35.2.7.53.53l4.67-2.34c1.15.2 2.37.31 3.62.31 5.52 0 10-3.58 10-8s-4.48-8-10-8zm-1.8 11.8H7.8v-.9l2.1-2.9H7.8v-1.1h3.9v.9l-2.1 2.9h2.5v1.2z" />
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/everflow.vn" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
+                <svg viewBox="0 0 24 24" className="social-icon">
+                  <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.908 1.448 5.484 3.717 7.058a.936.936 0 0 1 .309.84l-.192 1.956c-.02.213.19.387.387.29l2.25-1.103a.925.925 0 0 1 .665-.047c.928.243 1.905.378 2.864.378 5.523 0 10-4.146 10-9.243S17.523 2 12 2zm1.096 11.968l-2.122-2.262-4.12 2.262 4.526-4.8 2.176 2.262 4.066-2.262-4.526 4.8z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
 
       <div className="quick-contact" aria-label="Liên hệ nhanh">
         <a href="https://zalo.me/0969595475" aria-label="Zalo">
@@ -894,7 +1198,85 @@ export default function Home() {
           <img src={`${asset}/ladiui/icons/social/facebook.svg`} alt="" />
         </a>
       </div>
-      <a className="to-top" href="#home" aria-label="Lên đầu trang" />
-    </main>
+    </div>
+  );
+}
+
+/* ==========================================================================
+   DEFAULT ENTRYPOINT COMPONENT (With Device Type Detection)
+   ========================================================================== */
+export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleDeviceCheck = () => {
+      const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isSmallScreen = window.innerWidth <= 960;
+      setIsMobile(isMobileUA || isSmallScreen);
+    };
+
+    handleDeviceCheck();
+    window.addEventListener('resize', handleDeviceCheck);
+    return () => window.removeEventListener('resize', handleDeviceCheck);
+  }, []);
+
+  function slideLeft() {
+    const container = document.querySelector('.project-pills-container');
+    if (container) {
+      container.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  }
+
+  function slideRight() {
+    const container = document.querySelector('.project-pills-container');
+    if (container) {
+      container.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  }
+
+  function scrollCarousel(direction) {
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+      const scrollAmount = 320;
+      track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  }
+
+  // Prerender the primary DesktopLayout during SSR to sustain outstanding SEO parsing
+  if (!mounted) {
+    return (
+      <DesktopLayout 
+        activeProjectIndex={activeProjectIndex}
+        setActiveProjectIndex={setActiveProjectIndex}
+        slideLeft={slideLeft}
+        slideRight={slideRight}
+        scrollCarousel={scrollCarousel}
+      />
+    );
+  }
+
+  if (isMobile) {
+    return (
+      <MobileLayout 
+        activeProjectIndex={activeProjectIndex}
+        setActiveProjectIndex={setActiveProjectIndex}
+        slideLeft={slideLeft}
+        slideRight={slideRight}
+        scrollCarousel={scrollCarousel}
+      />
+    );
+  }
+
+  return (
+    <DesktopLayout 
+      activeProjectIndex={activeProjectIndex}
+      setActiveProjectIndex={setActiveProjectIndex}
+      slideLeft={slideLeft}
+      slideRight={slideRight}
+      scrollCarousel={scrollCarousel}
+    />
   );
 }
