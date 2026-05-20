@@ -441,7 +441,7 @@ export default function Home() {
           <span className="tech-icon chat" />
           <span className="tech-icon code">&lt;/&gt;</span>
           <span className="tech-icon gear">◎</span>
-          <img src={`${asset}/s1150x1050/5f714867c025a83c10a07869/fb-ads2-1-20220802014840.png`} alt="" />
+          <img src="/hero-home-illustration.png" alt="" />
         </div>
       </section>
 
